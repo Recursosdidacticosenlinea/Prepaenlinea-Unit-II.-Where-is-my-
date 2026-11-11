@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit II. Where is my…? · M06 S2</title>
+  <meta name="description" content="Guía interactiva para las Actividades integradoras 3 y 4 del Módulo 6, semana 2: vocabulario, práctica, ejercicios de voz y ayuda para escribir tus respuestas.">
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="step-kicker">Módulo 6 · Semana 2</div>
+      <h1>Unit II. Where is my…?</h1>
+      <p>Una guía paso a paso para preparar y contestar tus Actividades integradoras 3 y 4. Aprende el tema, practica con ejercicios, ensaya tu pronunciación con el micrófono y arma tus respuestas.</p>
+    </header>
+
+    <div class="acts">
+      <a class="card act" href="actividad-3.html">
+        <img src="img/living-room.jpg" alt="">
+        <div class="body">
+          <div class="step-kicker">Actividad integradora 3</div>
+          <h2>Be my guest</h2>
+          <p>Di dónde están los objetos de la casa con <span class="en">There is / There are</span> y las preposiciones de lugar.</p>
+          <p class="small muted" id="prog-ai3"></p>
+          <span class="btn primary">Abrir Actividad 3 →</span>
+        </div>
+      </a>
+      <a class="card act" href="actividad-4.html">
+        <img src="img/map.png" alt="">
+        <div class="body">
+          <div class="step-kicker">Actividad integradora 4</div>
+          <h2>Come to my house</h2>
+          <p>Explica cómo llegar de un lugar a otro en el mapa con instrucciones claras y en orden.</p>
+          <p class="small muted" id="prog-ai4"></p>
+          <span class="btn primary">Abrir Actividad 4 →</span>
+        </div>
+      </a>
+    </div>
+
+    <h2>¿Cómo se usa?</h2>
+    <ol class="how">
+      <li><b>Aprende.</b> Cada actividad empieza con el objetivo, el vocabulario y la gramática que necesitas.</li>
+      <li><b>Practica.</b> Resuelve ejercicios cortos con retroalimentación inmediata.</li>
+      <li><b>Habla.</b> Escucha, repite y deja que el reconocimiento de voz te diga cuánto se entendió.</li>
+      <li><b>Escribe y graba.</b> Contesta tu actividad con pistas, graba tu audio y copia todo a tu Word.</li>
+    </ol>
+
+    <div class="card">
+      <h3>Antes de empezar</h3>
+      <ul class="clean">
+        <li>Usa <b>Google Chrome</b> o <b>Microsoft Edge</b> para que funcionen el micrófono y el reconocimiento de voz. Cuando el navegador lo pida, elige <b>Permitir</b>.</li>
+        <li>Tu avance se guarda solo en este dispositivo y navegador. No se envía a ningún lado.</li>
+        <li><b>Este sitio es para practicar y preparar tus respuestas; no reemplaza el archivo oficial.</b> Descarga el formato de cada actividad desde la plataforma, copia ahí tus respuestas y envía <b>ese archivo</b> para su revisión.</li>
+      </ul>
+      <p class="noprint"><button type="button" id="reset">Borrar mi avance en este dispositivo</button></p>
+    </div>
+
+    <footer class="site">Material de apoyo para las Actividades integradoras 3 y 4 · Módulo 6, semana 2.</footer>
+  </div>
+  <script>
+    (function () {
+      ["ai3", "ai4"].forEach(function (id) {
+        try {
+          var s = JSON.parse(localStorage.getItem("m06s2:" + id) || "null");
+          if (s && s.seen && Object.keys(s.seen).length) document.getElementById("prog-" + id).textContent = "Ya empezaste: vas en el paso " + ((s.step || 0) + 1) + ".";
+        } catch (e) {}
+      });
+      document.getElementById("reset").addEventListener("click", function () {
+        if (!confirm("¿Borrar todas tus respuestas y tu avance de las dos actividades en este dispositivo? No se puede deshacer.")) return;
+        try { localStorage.removeItem("m06s2:ai3"); localStorage.removeItem("m06s2:ai4"); } catch (e) {}
+        location.reload();
+      });
+    })();
+  </script>
+</body>
+</html>
